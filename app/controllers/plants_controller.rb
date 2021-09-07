@@ -1,5 +1,5 @@
 class PlantsController < ApplicationController
-   # before_action :redirect_not_logged_in
+    before_action :redirect_not_logged_in
 
     def new
         @plant = Plant.new
