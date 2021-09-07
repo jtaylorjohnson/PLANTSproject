@@ -3,4 +3,7 @@ class Plant < ApplicationRecord
     has_many :users, through: :user_plants
     has_many :comments
     has_many :commented_users, through: :comments, source: :user
+
+    validates :kind, presence: true
+
 end

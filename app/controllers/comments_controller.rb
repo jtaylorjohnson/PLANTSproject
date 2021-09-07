@@ -11,7 +11,10 @@ class CommentsController < ApplicationController
 
     def new
         if params[:plant_id] && @plant = Plant.find_by_id(params[:plant_id])
-        @comment = Comment.new
+            @comment = @plant.comments.build
+        else
+            @comment = Comment.new
+        end
     end
 
     def create
@@ -33,6 +36,17 @@ class CommentsController < ApplicationController
 
     def update
         @comment = Comment.find_by(id: params[:id])
+        if @comment.update(comment_params)
+            redirect_to comment_path(@comment)
+        else
+            render :edit
+        end
+    end
+
+    private
+
+    def comment_params
+        params.require(:comment).permit(:content, :plant_id)
     end
 
 end

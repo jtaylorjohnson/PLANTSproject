@@ -13,7 +13,8 @@ class PlantsController < ApplicationController
 
     def create
         #@plant = current_user.plants.build(plant_params)
-        @plant = Plant.new(plant_params)
+        @plant = Plant.find_or_create_by(name: plant_params[:name]) do |plant|
+            plant.users << plant_params[:name]
         if @plant.save
             redirect_to plants_path
             # if @post.valid?
