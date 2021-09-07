@@ -1,0 +1,8 @@
+<h1><%=@plant.name%></h1>
+<h2><%=@plant.type%></h2>
+
+<h1>All Owners:</h1>
+<% @plant.users.each do |u| %>
+    <%= u.name %><br>
+<% end %>
+
