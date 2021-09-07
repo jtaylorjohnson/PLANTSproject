@@ -8,10 +8,10 @@
       <% end %>
     </datalist>
     
-    <%= f.text_field :type, list: "types_autocomplete" %>
-    <datalist id="types_autocomplete">
+    <%= f.text_field :kind, list: "kinds_autocomplete" %>
+    <datalist id="kinds_autocomplete">
       <% Plant.all.each do |plant| %>
-        <option value="<%= plant.type %>">
+        <option value="<%= plant.kind %>">
       <% end %>
     </datalist>
 

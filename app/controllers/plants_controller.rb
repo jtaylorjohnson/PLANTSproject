@@ -1,5 +1,5 @@
 class PlantsController < ApplicationController
-    before_action :redirect_not_logged_in
+   # before_action :redirect_not_logged_in
 
     def new
         @plant = Plant.new
@@ -9,9 +9,11 @@ class PlantsController < ApplicationController
          # else
           #  @post = Post.new(author_id: params[:author_id])
          # end
+    end
 
     def create
-        @plant = current_user.plants.build(post_params)
+        #@plant = current_user.plants.build(plant_params)
+        @plant = Plant.new(plant_params)
         if @plant.save
             redirect_to plants_path
             # if @post.valid?
@@ -52,9 +54,8 @@ class PlantsController < ApplicationController
     private
 
     def plant_params
-        params.require(:plant).permit(:name, :type)
+        params.require(:plant).permit(:name, :kind)
     end
 
 end
 
-end
