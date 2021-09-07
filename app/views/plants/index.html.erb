@@ -1,0 +1,4 @@
+<h1>All Plants</h1>
+<% @plants.each do |p| %>
+<li><%= link_to p.name, plant_path(p) %></li>
+<% end %>
