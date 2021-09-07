@@ -1,6 +1,9 @@
 <h1><%=@plant.name%></h1>
 <h2><%=@plant.kind%></h2>
 
+<p><%= link_to 'See All Comments', plant_comments_path(@plant)%></p>
+<p><%= link_to 'Add New Comment', new_post_comment_path(@plant)%></p>
+
 <h1>All Owners:</h1>
 <% @plant.users.each do |u| %>
     <%= u.name %><br>
